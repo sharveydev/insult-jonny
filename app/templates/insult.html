@@ -2,13 +2,27 @@
 <html>
 <head>
     <title>Add Insult</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <h1>Add a New Insult</h1>
-    <form method="POST" action="/add-insult">
-        <label for="insult">Insult:</label>
-        <input type="text" id="insult" name="content" required>
-        <input type="submit" value="Submit">
-    </form>
+    <div class="container">
+        <h1>Add a New Insult</h1>
+
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            <ul class="flashes">
+            {% for message in messages %}
+              <li>{{ message }}</li>
+            {% endfor %}
+            </ul>
+          {% endif %}
+        {% endwith %}
+
+        <form method="POST" action="/add-insult">
+            <label for="insult">Insult:</label>
+            <input type="text" id="insult" name="content" required maxlength="255">
+            <input type="submit" value="Submit">
+        </form>
+    </div>
 </body>
 </html>

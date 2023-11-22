@@ -29,6 +29,8 @@ from flask_sqlalchemy import SQLAlchemy
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///insults.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+# Set a secret key for session management - make this an env variable for prod
+app.config['SECRET_KEY'] = 'your_very_secret_key_here'
 
 db = SQLAlchemy(app)
 
