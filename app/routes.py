@@ -21,3 +21,19 @@ When to Use This File:
 - Update this file when you want to add a new page or a new action to your app.
 
 """
+from flask import request, render_template
+from app import app, db
+from app.models import Insult
+
+
+@app.route('/insult')
+def add_insult_form():
+    return render_template('insult.html')
+
+@app.route('/add-insult', methods=['POST'])
+def add_insult():
+    content = request.form['content']
+    new_insult = Insult(content=content)
+    db.session.add(new_insult)
+    db.session.commit()
+    return "Insult added!"

@@ -23,3 +23,14 @@ When to Use This File:
   need to understand what data we are storing and how.
 
 """
+
+from app import db
+
+class Insult(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    content = db.Column(db.String(255), nullable=False)
+
+    def __repr__(self):
+        return '<Insult %r>' % self.content
+
+
