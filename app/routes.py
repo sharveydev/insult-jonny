@@ -36,4 +36,9 @@ def add_insult():
     new_insult = Insult(content=content)
     db.session.add(new_insult)
     db.session.commit()
-    return "Insult added!"
+    return render_template('insult_added_confirmation.html')
+
+@app.route('/view-insults')
+def view_insults():
+    insults = Insult.query.all()  # Retrieve all insults from the database
+    return render_template('view_insults.html', insults=insults)

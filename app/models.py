@@ -24,13 +24,17 @@ When to Use This File:
 
 """
 
+from datetime import datetime
 from app import db
 
 class Insult(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     content = db.Column(db.String(255), nullable=False)
+    added_timestamp = db.Column(db.DateTime, default=datetime.utcnow)
+    approved_status = db.Column(db.String(50), default='Queued')
 
     def __repr__(self):
-        return '<Insult %r>' % self.content
+        return f'<Insult {self.content}>'
+
 
 

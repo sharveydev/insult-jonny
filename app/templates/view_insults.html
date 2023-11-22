@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>View Insults</title>
+</head>
+<body>
+    <h1>Insults List</h1>
+    <ul>
+        {% for insult in insults %}
+            <li>{{ insult.content }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
