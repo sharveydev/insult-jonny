@@ -1,0 +1,20 @@
+--- Understanding Testing in Flask Projects ---
+
+Testing in Flask is about ensuring that each part of your application behaves as expected. 
+
+This includes making sure that:
+
+Web pages (routes) load correctly.
+User inputs are handled properly.
+The application interacts with the database as intended.
+Business logic (in models, utility functions, etc.) performs correctly under different scenarios.
+
+--- Types of Tests in Flask ---
+
+Unit Tests: These test individual parts of your application in isolation (like a single function in a utility file or a model method).
+
+Integration Tests: These tests check how different parts of your application work together. For example, testing if a form submission on a route correctly adds data to the database.
+
+Functional Tests: These tests assess the application from the user's perspective. For instance, testing the complete process of adding a new insult through the web interface.
+
+--- Building Tests ---
